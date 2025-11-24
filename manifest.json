@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Cursor Parking Lot",
+  "version": "1.0",
+  "description": "Creates a parking spot on every webpage to rest your cursor.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Cursor Parking"
+  }
+}

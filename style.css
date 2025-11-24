@@ -1,0 +1,60 @@
+/* The Parking Spot Container */
+#cursor-parking-lot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 120px;
+  background-color: #333;
+  border: 4px dashed #f1c40f; /* Yellow parking lines */
+  border-radius: 8px;
+  z-index: 999999; /* On top of everything */
+  cursor: grab; /* Indicates it can be moved */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.2s, background-color 0.2s;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+/* Visual states for the parking lot */
+#cursor-parking-lot.parked {
+  background-color: #27ae60; /* Green when parked */
+  border-style: solid;
+  cursor: none; /* Hide real cursor interaction */
+}
+
+/* The "P" Icon */
+#cursor-parking-lot .parking-icon {
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1c40f;
+  margin-bottom: 5px;
+}
+
+#cursor-parking-lot.parked .parking-icon {
+  color: white;
+}
+
+/* Helper text */
+#cursor-parking-lot .parking-text {
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+/* The Fake Cursor (Only shown when parked) */
+#virtual-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="2"><path d="M5.5 1L1 18.5L9.9 14.3L15.3 22.8L18.8 20.6L13.5 12.3L22 13L5.5 1Z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  display: none; /* Hidden by default */
+  z-index: 1000000;
+}
